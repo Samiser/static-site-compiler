@@ -1,0 +1,6 @@
+{
+	"templates": "./templates",
+	"blogs": "./blog-posts",
+	"pages": "./pages",
+	"out": "./out"
+}
