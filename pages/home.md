@@ -1,6 +1,7 @@
 ---
 title: Home
 navbar: true
+navbar_position: 1
 ---
 
 welcome to my website :)

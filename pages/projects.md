@@ -1,6 +1,7 @@
 ---
 title: Projects
 navbar: true
+navbar_position: 3
 ---
 
 here's some of my projects 

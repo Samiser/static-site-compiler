@@ -53,7 +53,9 @@ def parse_dir(dir_string, exclude=[], sort_output=False):
             sorted(out.items(), key=lambda x: x[1]["meta"]["date"], reverse=True)
         )
     else:
-        return out
+        return OrderedDict(
+            sorted(out.items(), key=lambda x: x[1]["meta"]["navbar_position"])
+        )
 
 
 def main():

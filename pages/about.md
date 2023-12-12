@@ -1,6 +1,7 @@
 ---
 title: About
 navbar: true
+navbar_position: 2
 ---
 
 soc analyst, music maker, vegan
