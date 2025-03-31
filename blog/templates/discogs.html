@@ -1,0 +1,11 @@
+<p>welcome to my vinyl collection! powered by <a href="https://www.discogs.com/user/vinyl.enjoyer/collection">discogs</a></p>
+
+<div class="collection">
+    {% for release in releases %}
+    <div class="collection-cell">
+        <a href="https://www.discogs.com/release/{{ release.id }}">
+            <img loading="lazy" src="{{ release.basic_information.cover_image }}" alt="{{ release.basic_information.title }}">
+        </a>
+    </div>
+    {% endfor %}
+</div>
