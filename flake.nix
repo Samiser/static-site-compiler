@@ -16,26 +16,20 @@
 
         propagatedBuildInputs = with pkgs.python3Packages; [
           black
-          certifi
-          charset-normalizer
-          click
-          idna
-          importlib-metadata
           jinja2
           markdown
-          markupsafe
-          mypy-extensions
-          pathspec
-          platformdirs
-          pygments
           python-frontmatter
-          pyyaml
           requests
-          tomli
-          typed-ast
-          typing-extensions
-          urllib3
-          zipp
+          pytest
+          expecttest
+        ];
+
+        build-system = with pkgs.python3Packages; [
+          setuptools
+        ];
+
+        nativeCheckInputs = with pkgs.python3Packages; [
+          pytestCheckHook
         ];
 
         meta.mainProgram = "ssc";
@@ -50,9 +44,12 @@
           python3
           python3Packages.black
           python3Packages.jinja2
+          python3Packages.setuptools
           python3Packages.markdown
+          python3Packages.python-frontmatter
           python3Packages.requests
-          python3Packages.pyyaml
+          python3Packages.pytest
+          python3Packages.expecttest
         ];
       };
     });

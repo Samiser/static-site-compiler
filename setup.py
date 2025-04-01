@@ -22,4 +22,5 @@ _ = setup(
         "python-frontmatter",
         "requests",
     ],
+    test_suite="tests",
 )

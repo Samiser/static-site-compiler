@@ -1,17 +1,25 @@
-<p>this page shows my most listened to albums of the past week, month and year</p>
-
-<p>the data comes from my <a href="https://www.last.fm/user/Samiser">lastfm profile</a> and it's updated every minute</p>
-
+<p>
+  this page shows my most listened to albums of the past week, month and year
+</p>
+<p>
+  the data comes from my
+  <a href="https://www.last.fm/user/Samiser">lastfm profile</a> and it's updated
+  every minute
+</p>
 {% for period in albums %}
 <h2>{{ period }}</h2>
-    {% for album in albums[period] %}
-    <div class="album">
-        <img class="album-cover" loading="lazy" src="{{ album.image[-1]['#text'] }}" alt="{{ album.name }}">
-        <div class="album-info">
-            <h2 class="album-title">{{ album.name }}</h2>
-            <p class="album-artist">{{ album.artist.name }}</p>
-            <p class="album-plays">song plays: {{ album.playcount }}</p>
-        </div>
-    </div>
-    {% endfor %}
-{% endfor %}
+{% for album in albums[period] %}
+<div class="album">
+  <img
+    class="album-cover"
+    loading="lazy"
+    src="{{ album.image[-1].text }}"
+    alt="{{ album.name }}"
+  />
+  <div class="album-info">
+    <h2 class="album-title">{{ album.name }}</h2>
+    <p class="album-artist">{{ album.artist.name }}</p>
+    <p class="album-plays">song plays: {{ album.playcount }}</p>
+  </div>
+</div>
+{% endfor %} {% endfor %}
