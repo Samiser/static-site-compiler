@@ -1,22 +1,14 @@
 import markdown
 import frontmatter
-from datetime import date, datetime
 from collections import OrderedDict
 from collections.abc import Callable
-from typing import cast, TypeVar
+from typing import TypeVar
 from pathlib import Path
 
 from blog.parser_types import Page, Post, Metadata
 
 
 T = TypeVar("T")
-
-
-def parse_date(date_str: str) -> date:
-    try:
-        return datetime.strptime(date_str, "%Y-%m-%d").date()
-    except ValueError:
-        raise ValueError(f"Invalid date format: {date_str}")
 
 
 def parse_content(content: str):
@@ -50,7 +42,7 @@ def parse_post(raw_md: frontmatter.Post):
     )
     title = str(raw_md.metadata["title"])
     summary = str(raw_md.metadata["summary"])
-    date = parse_date(cast(str, raw_md.metadata["date"]))
+    date = raw_md.metadata["date"]
     publish = bool(raw_md.metadata["publish"])
     content = parse_content(raw_md.content)
 

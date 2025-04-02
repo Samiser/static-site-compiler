@@ -19,7 +19,6 @@ def load_config(path: Path) -> Config:
         blogs=Path(raw_config["blogs"]),
         static=Path(raw_config["static"]),
         pages=Path(raw_config["pages"]),
-        out=Path(raw_config["out"]),
     )
 
     print(f"Loaded config: {config}")

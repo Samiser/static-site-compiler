@@ -2,7 +2,6 @@ import json
 import requests
 from blog.render import render_template
 from blog.lastfm_types import MyTopAlbums, TopAlbums
-from pathlib import Path
 
 
 def get(api_key: str, method: str, period: str) -> TopAlbums:
@@ -42,7 +41,7 @@ def get_albums(api_key: str):
     return year, month, week
 
 
-def create(templates_dir: Path, api_key: str) -> str:
+def create(api_key: str) -> str:
     year, month, week = get_albums(api_key)
 
     my_top_albums: MyTopAlbums = {
@@ -54,7 +53,6 @@ def create(templates_dir: Path, api_key: str) -> str:
     }
 
     html = render_template(
-        templates_dir,
         "lastfm.html",
         my_top_albums,
     )

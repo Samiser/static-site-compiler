@@ -1,4 +1,3 @@
-from datetime import date
 from typing import TypedDict
 from collections import OrderedDict, defaultdict
 
@@ -7,7 +6,7 @@ class Metadata(TypedDict):
     tags: list[str]
     title: str
     summary: str
-    date: date
+    date: object
     publish: bool
     time_to_read: int
 

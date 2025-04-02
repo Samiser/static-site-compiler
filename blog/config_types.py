@@ -7,7 +7,6 @@ class Config(TypedDict):
     blogs: Path
     static: Path
     pages: Path
-    out: Path
 
 
 class LastFMSecrets(TypedDict):

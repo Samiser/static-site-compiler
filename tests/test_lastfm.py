@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from blog.lastfm_types import MyTopAlbums
 from blog.render import render_template
 from expecttest import assert_expected_inline
@@ -25,40 +24,44 @@ sample_json = """
 
 
 def test_rendering():
-    template_dir = Path(__file__).parent.parent / "blog" / "templates"
     lastfm_data: MyTopAlbums = json.loads(sample_json)
-    rendered_output = render_template(template_dir, "lastfm.html", lastfm_data)
+    rendered_output = render_template("lastfm.html", lastfm_data)
 
     assert_expected_inline(
         rendered_output,
         """\
 <p>
-  this page shows my most listened to albums of the past week, month and year
+ this page shows my most listened to albums of the past week, month and year
 </p>
 <p>
-  the data comes from my
-  <a href="https://www.last.fm/user/Samiser">lastfm profile</a> and it's updated
+ the data comes from my
+ <a href="https://www.last.fm/user/Samiser">
+  lastfm profile
+ </a>
+ and it's updated
   every minute
 </p>
-
-<h2>week</h2>
-
+<h2>
+ week
+</h2>
 <div class="album">
-  <img
-    class="album-cover"
-    loading="lazy"
-    src="https://example.com/large.png"
-    alt=""
-  />
-  <div class="album-info">
-    <h2 class="album-title"></h2>
-    <p class="album-artist">Snoop Dogg</p>
-    <p class="album-plays">song plays: </p>
-  </div>
+ <img alt="" class="album-cover" loading="lazy" src="https://example.com/large.png"/>
+ <div class="album-info">
+  <h2 class="album-title">
+  </h2>
+  <p class="album-artist">
+   Snoop Dogg
+  </p>
+  <p class="album-plays">
+   song plays:
+  </p>
+ </div>
 </div>
- 
-<h2>month</h2>
- 
-<h2>year</h2>
- """,
+<h2>
+ month
+</h2>
+<h2>
+ year
+</h2>
+""",
     )

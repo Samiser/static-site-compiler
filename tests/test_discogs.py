@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from blog.discogs_types import Releases
 from blog.render import render_template
 from expecttest import assert_expected_inline
@@ -68,29 +67,24 @@ sample_json = """
 
 
 def test_rendering_discogs():
-    template_dir = Path(__file__).parent.parent / "blog" / "templates"
     discogs_data: Releases = json.loads(sample_json)
-
-    rendered_output = render_template(template_dir, "discogs.html", discogs_data)
+    rendered_output = render_template("discogs.html", discogs_data)
 
     assert_expected_inline(
         rendered_output,
         """\
 <p>
-  welcome to my vinyl collection! powered by
-  <a href="https://www.discogs.com/user/vinyl.enjoyer/collection">discogs</a>
+ welcome to my vinyl collection! powered by
+ <a href="https://www.discogs.com/user/vinyl.enjoyer/collection">
+  discogs
+ </a>
 </p>
 <div class="collection">
-  
-  <div class="collection-cell">
-    <a href="https://www.discogs.com/release/18420268">
-      <img
-        loading="lazy"
-        src=""
-        alt="Bring Backs"
-      />
-    </a>
-  </div>
-  
-</div>""",
+ <div class="collection-cell">
+  <a href="https://www.discogs.com/release/18420268">
+   <img alt="Bring Backs" loading="lazy" src=""/>
+  </a>
+ </div>
+</div>
+""",
     )

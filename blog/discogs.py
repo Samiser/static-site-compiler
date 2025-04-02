@@ -1,7 +1,6 @@
 import requests
 from blog.render import render_template
 from blog.discogs_types import Releases
-from pathlib import Path
 
 
 def get(token: str):
@@ -19,11 +18,10 @@ def get(token: str):
     return releases
 
 
-def create(templates_dir: Path, token: str):
+def create(token: str):
     releases = get(token)
 
     html = render_template(
-        templates_dir,
         "discogs.html",
         releases,
     )

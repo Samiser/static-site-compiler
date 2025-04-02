@@ -12,7 +12,6 @@ def temp_config_file(tmp_path: Path) -> Path:
         "blogs": str(tmp_path / "blogs"),
         "static": str(tmp_path / "static"),
         "pages": str(tmp_path / "pages"),
-        "out": str(tmp_path / "out"),
     }
     config_path = tmp_path / "config.json"
     _: int = config_path.write_text(json.dumps(config_data))
