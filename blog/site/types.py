@@ -1,7 +1,7 @@
 from typing import TypeAlias
 from collections import defaultdict, OrderedDict
 
-from blog.parser_types import Page, Post
+from blog.parsers.types import Page, Post
 
 
 Posts: TypeAlias = OrderedDict[str, Post]

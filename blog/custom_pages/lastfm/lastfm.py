@@ -1,7 +1,7 @@
 import json
 import requests
 from blog.render import render_template
-from blog.lastfm_types import MyTopAlbums, TopAlbums
+from .types import MyTopAlbums, TopAlbums
 
 
 def get(api_key: str, method: str, period: str) -> TopAlbums:

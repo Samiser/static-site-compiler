@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from blog.config_types import (
+from .types import (
     Config,
     Secrets,
     LastFMSecrets,

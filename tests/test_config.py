@@ -2,7 +2,7 @@ import pytest
 import json
 from pathlib import Path
 from blog.config import load_config, load_secrets, load_configuration
-from blog.config_types import Config, Secrets
+from blog.config.types import Config, Secrets
 
 
 @pytest.fixture

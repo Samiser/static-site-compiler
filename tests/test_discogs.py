@@ -1,5 +1,5 @@
 import json
-from blog.discogs_types import Releases
+from blog.custom_pages.discogs.types import Releases
 from blog.render import render_template
 from expecttest import assert_expected_inline
 

@@ -1,6 +1,6 @@
 import requests
 from blog.render import render_template
-from blog.discogs_types import Releases
+from .types import Releases
 
 
 def get(token: str):

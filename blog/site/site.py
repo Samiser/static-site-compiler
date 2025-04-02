@@ -7,8 +7,8 @@ from blog.filesystem import write_index_html, copy_files
 from blog.parsers import parse_posts, parse_pages
 
 from pathlib import Path
-from blog.config_types import Config
-from blog.site_types import Posts, Pages, PostTitlesByYear
+from blog.config.types import Config
+from .types import Posts, Pages, PostTitlesByYear
 
 
 def _group_posts_by_year(posts: Posts) -> PostTitlesByYear:
@@ -46,4 +46,4 @@ def build(config: Config, custom_pages: Pages | None, out_dir: Path):
     write_index_html(out_dir, output)
     copy_files(config["blogs"] / "images", out_dir / "images")
     copy_files(config["static"], out_dir)
-    copy_files(Path(__file__).parent / "style", out_dir)
+    copy_files(Path(__file__).parent.parent / "style", out_dir)

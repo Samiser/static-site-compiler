@@ -1,5 +1,5 @@
 import json
-from blog.lastfm_types import MyTopAlbums
+from blog.custom_pages.lastfm.types import MyTopAlbums
 from blog.render import render_template
 from expecttest import assert_expected_inline
 

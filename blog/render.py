@@ -2,9 +2,9 @@ import jinja2
 from bs4 import BeautifulSoup
 
 from pathlib import Path
-from blog.lastfm_types import MyTopAlbums as LastFMTopAlbums
-from blog.discogs_types import Releases as DiscogsReleases
-from blog.parser_types import PostsAndPages
+from blog.custom_pages.lastfm.types import MyTopAlbums as LastFMTopAlbums
+from blog.custom_pages.discogs.types import Releases as DiscogsReleases
+from blog.parsers.types import PostsAndPages
 
 
 def render_template(

@@ -5,7 +5,7 @@ from collections.abc import Callable
 from typing import TypeVar
 from pathlib import Path
 
-from blog.parser_types import Page, Post, Metadata
+from .types import Page, Post, Metadata
 
 
 T = TypeVar("T")
@@ -103,14 +103,4 @@ def parse_posts(dir: Path, exclude: list[str] | None = None) -> OrderedDict[str,
             key=lambda x: str(x[1]["meta"].get("date", "")),
             reverse=True,
         )
-    )
-
-
-def custom_page(title: str, content: str, navbar: bool) -> Page:
-    return Page(
-        {
-            "content": content,
-            "title": title,
-            "navbar": navbar,
-        }
     )
