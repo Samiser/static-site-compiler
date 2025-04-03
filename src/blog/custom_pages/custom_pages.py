@@ -1,4 +1,4 @@
-from . import discogs, lastfm
+from blog.custom_pages import lastfm, discogs
 
 from blog.site.types import Pages
 from blog.config.types import Secrets
@@ -20,12 +20,13 @@ def custom_page(title: str, content: str, navbar: bool) -> Page:
 
 
 def generate(secrets: Secrets) -> Pages:
-    pages: CustomPageCreators = {
+
+    custom_pages = {
         "listening": lambda: lastfm.create(secrets["lastfm"]["api_key"]),
         "vinyl": lambda: discogs.create(secrets["discogs"]["token"]),
     }
 
     return {
         name: custom_page(name.title(), creator(), False)
-        for name, creator in pages.items()
+        for name, creator in custom_pages.items()
     }

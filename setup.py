@@ -1,11 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 _ = setup(
     name="static-site-compiler",
     version="0.1.0",
     description="my cool static site compiler",
     author="Samiser",
-    packages=find_packages(),
     entry_points={
         "console_scripts": [
             "ssc = blog.main:main",
