@@ -44,8 +44,10 @@ def build(config: Config, custom_pages: Pages | None, out_dir: Path):
     output = _generate_index_html(posts, pages)
 
     write_index_html(out_dir, output)
-    copy_files(config["blogs"] / "images", out_dir / "images")
+
+    images = config["blogs"] / "images"
+    if images.exists():
+        copy_files(config["blogs"] / "images", out_dir / "images")
+
     copy_files(config["static"], out_dir)
-    print(out_dir)
-    print(Path(__file__).parent.parent)
     copy_files(Path(__file__).parent.parent / "style", out_dir)
