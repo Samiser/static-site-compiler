@@ -12,7 +12,7 @@ _ = setup(
     },
     include_package_data=True,
     package_data={
-        "blog": ["templates/*.html"],
+        "blog": ["templates/*.html", "style/style.css"],
     },
     install_requires=[
         "Jinja2",
