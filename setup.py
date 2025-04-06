@@ -12,7 +12,11 @@ _ = setup(
     },
     include_package_data=True,
     package_data={
-        "ssc": ["*.html", "*.css"],
+        "ssc": [
+            "custom_pages/*/templates/*.html",
+            "site/templates/*.html",
+            "style/style.css",
+        ],
     },
     install_requires=[
         "Jinja2",

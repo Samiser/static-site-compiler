@@ -27,7 +27,14 @@ sample_json = """
 def test_rendering():
     lastfm_data: MyTopAlbums = json.loads(sample_json)
     rendered_output = render_template(
-        Path(__file__).parent.parent / "templates", "lastfm.html", lastfm_data
+        Path(__file__).parent.parent
+        / "src"
+        / "ssc"
+        / "custom_pages"
+        / "lastfm"
+        / "templates",
+        "lastfm.html",
+        lastfm_data,
     )
 
     assert_expected_inline(

@@ -70,7 +70,14 @@ sample_json = """
 def test_rendering_discogs():
     discogs_data: Releases = json.loads(sample_json)
     rendered_output = render_template(
-        Path(__file__).parent.parent / "templates", "discogs.html", discogs_data
+        Path(__file__).parent.parent
+        / "src"
+        / "ssc"
+        / "custom_pages"
+        / "discogs"
+        / "templates",
+        "discogs.html",
+        discogs_data,
     )
 
     assert_expected_inline(
