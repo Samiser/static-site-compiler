@@ -117,11 +117,7 @@ def test_main_rendering(built_site: Path):
      </p>
     </p>
    </section>
-   <section codehilite"="" id="2000-01-01-{'content': '&lt;p&gt;This is a test!&lt;/p&gt;\\n&lt;pre class=">
-    <code class="language-python">
-     print("test")\\n
-    </code>
-    ', 'meta': {'tags': ['test', 'tags'], 'title': 'Test page', 'summary': 'A page for testing', 'date': datetime.date(2000, 1, 1), 'publish': True, 'time_to_read': 0}}"&gt;
+   <section id="2000-01-01-test-page">
     <h1>
      Test page
     </h1>

@@ -14,7 +14,7 @@
 
 {% for blogs in blogs_by_year.values() %}
 {% for blog in blogs %}
-<section id="{{ blog["meta"]["date"] }}-{{ blog }}">
+<section id="{{ blog["meta"]["date"] }}-{{ blog["meta"]["title"].lower().replace(" ", "-") }}">
   <h1>{{ blog["meta"]["title"] }}</h1>
   <p><em>{{ blog["meta"]["date"] }}</em></p>
   <p><em>{{ blog["meta"]["time_to_read"] }} minute read</em></p>
