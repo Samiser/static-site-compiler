@@ -104,30 +104,21 @@ def test_main_rendering(built_site: Path):
     </h1>
     <hr/>
     <p>
-     for the music i'm currently listening to, check out
-     <a href="/#listening">
-      listening
-     </a>
-     <p>
-      for my current vinyl collection, check out
-      <a href="/#vinyl">
-       vinyl
-      </a>
-      <h2>
-       2000
-      </h2>
-      <ul>
-       <li>
-        <a href="#2000-01-01-test-page">
-         <em>
-          2000-01-01
-         </em>
-         - Test page
-        </a>
-       </li>
-      </ul>
-     </p>
+     occasionally i like writing about things here :)
     </p>
+    <h2>
+     2000
+    </h2>
+    <ul>
+     <li>
+      <a href="#2000-01-01-test-page">
+       <em>
+        2000-01-01
+       </em>
+       - Test page
+      </a>
+     </li>
+    </ul>
    </section>
    <section id="2000-01-01-test-page">
     <h1>

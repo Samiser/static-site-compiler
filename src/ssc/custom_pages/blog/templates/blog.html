@@ -1,8 +1,7 @@
 <section id="blog">
   <h1>blog</h1>
   <hr>
-  <p>for the music i'm currently listening to, check out <a href="/#listening">listening</a>
-  <p>for my current vinyl collection, check out <a href="/#vinyl">vinyl</a>
+  <p>occasionally i like writing about things here :)</p>
     {% for year in blogs_by_year %}<h2>{{ year }}</h2>
     <ul>
       {% for blog in blogs_by_year[year] %}
