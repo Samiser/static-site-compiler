@@ -7,12 +7,15 @@ _ = setup(
     author="Samiser",
     entry_points={
         "console_scripts": [
-            "ssc = blog.main:main",
+            "ssc = ssc.main:main",
         ],
     },
     include_package_data=True,
     package_data={
-        "blog": ["templates/*.html", "style/style.css"],
+        "blog": [
+            "src/ssc/custom_pages/*/templates/*.html",
+            "style/style.css",
+        ],
     },
     install_requires=[
         "Jinja2",
@@ -21,5 +24,4 @@ _ = setup(
         "python-frontmatter",
         "requests",
     ],
-    test_suite="tests",
 )
