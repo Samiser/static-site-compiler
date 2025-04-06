@@ -15,7 +15,8 @@ _ = setup(
         "ssc": [
             "custom_pages/*/templates/*.html",
             "site/templates/*.html",
-            "style/style.css",
+            "static/*",
+            "static/*/*",
         ],
     },
     install_requires=[

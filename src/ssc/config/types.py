@@ -5,7 +5,6 @@ from pathlib import Path
 class Config(TypedDict):
     templates: Path
     blogs: Path
-    static: Path
     pages: Path
 
 

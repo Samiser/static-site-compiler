@@ -27,7 +27,6 @@ def built_site(site_dir: Path) -> Path:
     config: Config = {
         "templates": Path("templates"),
         "blogs": test_data_path / "blogs",
-        "static": test_data_path / "static",
         "pages": test_data_path / "pages",
     }
 
@@ -35,14 +34,31 @@ def built_site(site_dir: Path) -> Path:
     return site_dir
 
 
-def test_static_files(built_site: Path):
-    static_file = built_site / "static_file"
-    assert static_file.exists()
+def directory_tree(path: Path, level: int = 0) -> str:
+    tree_str = f"{'  ' * level}- {path.name}\n"
+    if path.is_dir():
+        for child in sorted(path.iterdir()):
+            tree_str += directory_tree(child, level + 1)
+    return tree_str
 
 
-def test_style_file(built_site: Path):
-    style_file = built_site / "style.css"
-    assert style_file.exists()
+def test_site_structure(built_site: Path):
+    assert_expected_inline(
+        directory_tree(built_site),
+        """\
+- site0
+  - boop
+    - blog_static_file
+    - page_static_file
+  - favicon.ico
+  - images
+    - blog_image
+    - page_image
+    - twitter.jpg
+  - index.html
+  - style.css
+""",
+    )
 
 
 def test_main_rendering(built_site: Path):

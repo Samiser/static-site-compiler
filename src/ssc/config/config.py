@@ -17,7 +17,6 @@ def load_config(path: Path) -> Config:
     config: Config = Config(
         templates=Path(raw_config["templates"]),
         blogs=Path(raw_config["blogs"]),
-        static=Path(raw_config["static"]),
         pages=Path(raw_config["pages"]),
     )
 

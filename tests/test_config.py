@@ -10,7 +10,6 @@ def temp_config_file(tmp_path: Path) -> Path:
     config_data = {
         "templates": str(tmp_path / "templates"),
         "blogs": str(tmp_path / "blogs"),
-        "static": str(tmp_path / "static"),
         "pages": str(tmp_path / "pages"),
     }
     config_path = tmp_path / "config.json"
