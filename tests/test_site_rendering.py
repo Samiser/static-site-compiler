@@ -104,7 +104,7 @@ def test_main_rendering(built_site: Path):
     </h1>
     <hr/>
     <p>
-     occasionally i like writing about things here :)
+     occasionally i like writing about things here
     </p>
     <h2>
      2000
