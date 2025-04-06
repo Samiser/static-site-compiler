@@ -16,7 +16,7 @@ def _generate_index_html(pages: Pages):
 def build(config: Config, custom_pages: Pages | None, out_dir: Path):
     md_pages = parse_pages(config["pages"])
 
-    pages = md_pages if custom_pages is None else custom_pages + md_pages
+    pages = md_pages if custom_pages is None else md_pages + custom_pages
 
     output = _generate_index_html(pages)
 

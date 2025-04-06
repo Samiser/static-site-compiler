@@ -74,18 +74,30 @@ def test_main_rendering(built_site: Path):
     </a>
    </h1>
    <nav>
-    <a href="#blog">
-     blog
-    </a>
     <a href="#test">
      Test
     </a>
     <a href="#blog">
-     Blog
+     blog
     </a>
    </nav>
   </header>
   <main>
+   <section id="test">
+    <h1>
+     Test
+    </h1>
+    <hr/>
+    <p>
+     test page
+    </p>
+    <p>
+     with a
+     <a href="#blog">
+      link!
+     </a>
+    </p>
+   </section>
    <section id="blog">
     <h1>
      Blog
@@ -141,21 +153,6 @@ def test_main_rendering(built_site: Path):
     <a href="#blog">
      Back
     </a>
-   </section>
-   <section id="test">
-    <h1>
-     Test
-    </h1>
-    <hr/>
-    <p>
-     test page
-    </p>
-    <p>
-     with a
-     <a href="#blog">
-      link!
-     </a>
-    </p>
    </section>
   </main>
  </body>

@@ -14,6 +14,6 @@ def custom_page(
 
 def generate(config: Config, secrets: Secrets) -> Pages:
 
-    creators = map(lambda x: x.create, [lastfm, discogs, blog])
+    creators = map(lambda x: x.create, [blog, lastfm, discogs])
 
     return [custom_page(creator, secrets, config) for creator in creators]
