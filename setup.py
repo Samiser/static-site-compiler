@@ -13,8 +13,10 @@ _ = setup(
     include_package_data=True,
     package_data={
         "blog": [
-            "src/ssc/custom_pages/*/templates/*.html",
-            "style/style.css",
+            "src/ssc/custom_pages/lastfm/templates/lastfm.html",
+            "src/ssc/custom_pages/discogs/templates/discogs.html",
+            "src/ssc/custom_pages/blog/templates/blog.html",
+            "src/ssc/style/style.css",
         ],
     },
     install_requires=[
