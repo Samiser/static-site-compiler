@@ -100,7 +100,7 @@ def test_main_rendering(built_site: Path):
    </section>
    <section id="blog">
     <h1>
-     Blog
+     blog
     </h1>
     <hr/>
     <p>
