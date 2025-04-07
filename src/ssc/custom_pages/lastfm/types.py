@@ -1,9 +1,7 @@
 from typing import TypedDict
 
-
-class ImageData(TypedDict):
-    size: str
-    text: str
+# using alternative syntax to allow for #text key
+ImageData = TypedDict("ImageData", {"size": str, "#text": str})
 
 
 class ArtistData(TypedDict):

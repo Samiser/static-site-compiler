@@ -7,19 +7,44 @@ from pathlib import Path
 # Sample JSON response
 sample_json = """
 {
-    "albums": {
-        "week": [
-            {
-                "artist": {"url": "https://example.com", "name": "Snoop Dogg", "mbid": "f90e8b26-9e52-4669-a5c9-e28529c47894"},
-                "image": [
-                    {"size": "small", "text": "https://example.com/small.png"},
-                    {"size": "large", "text": "https://example.com/large.png"}
-                ]
-            }
+  "albums": {
+    "week": [
+      {
+        "artist": {
+          "url": "https://www.last.fm/music/clipping.",
+          "name": "clipping.",
+          "mbid": "84ca8fa4-7cca-4948-a90a-cb44db29853d"
+        },
+        "image": [
+          {
+            "size": "small",
+            "#text": "https://lastfm.freetls.fastly.net/i/u/34s/ed7fd62962ee0e28b8c26555d67521ba.png"
+          },
+          {
+            "size": "medium",
+            "#text": "https://lastfm.freetls.fastly.net/i/u/64s/ed7fd62962ee0e28b8c26555d67521ba.png"
+          },
+          {
+            "size": "large",
+            "#text": "https://lastfm.freetls.fastly.net/i/u/174s/ed7fd62962ee0e28b8c26555d67521ba.png"
+          },
+          {
+            "size": "extralarge",
+            "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/ed7fd62962ee0e28b8c26555d67521ba.png"
+          }
         ],
-        "month": [],
-        "year": []
-    }
+        "mbid": "4a18986d-1598-43a8-b15f-0340af442ffe",
+        "url": "https://www.last.fm/music/clipping./Dead+Channel+Sky",
+        "playcount": "98",
+        "@attr": {
+          "rank": "1"
+        },
+        "name": "Dead Channel Sky"
+      }
+    ],
+    "month": [],
+    "year": []
+  }
 }
 """
 
@@ -55,15 +80,16 @@ def test_rendering():
  week
 </h2>
 <div class="album">
- <img alt="" class="album-cover" loading="lazy" src="https://example.com/large.png"/>
+ <img alt="Dead Channel Sky" class="album-cover" loading="lazy" src=""/>
  <div class="album-info">
   <h2 class="album-title">
+   Dead Channel Sky
   </h2>
   <p class="album-artist">
-   Snoop Dogg
+   clipping.
   </p>
   <p class="album-plays">
-   song plays:
+   song plays: 98
   </p>
  </div>
 </div>
