@@ -80,7 +80,7 @@ def test_rendering():
  week
 </h2>
 <div class="album">
- <img alt="Dead Channel Sky" class="album-cover" loading="lazy" src=""/>
+ <img alt="Dead Channel Sky" class="album-cover" loading="lazy" src="https://lastfm.freetls.fastly.net/i/u/300x300/ed7fd62962ee0e28b8c26555d67521ba.png"/>
  <div class="album-info">
   <h2 class="album-title">
    Dead Channel Sky
