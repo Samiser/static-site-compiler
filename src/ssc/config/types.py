@@ -3,7 +3,6 @@ from pathlib import Path
 
 
 class Config(TypedDict):
-    templates: Path
     blogs: Path
     pages: Path
 

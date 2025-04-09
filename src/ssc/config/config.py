@@ -15,7 +15,6 @@ def load_config(path: Path) -> Config:
         raw_config: dict[str, str] = json.load(f)
 
     config: Config = Config(
-        templates=Path(raw_config["templates"]),
         blogs=Path(raw_config["blogs"]),
         pages=Path(raw_config["pages"]),
     )
