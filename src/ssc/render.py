@@ -20,5 +20,4 @@ def render_template(
 
     rendered = template.render(template_vars)
 
-    soup = BeautifulSoup(rendered, "html.parser")
-    return soup.prettify()
+    return rendered

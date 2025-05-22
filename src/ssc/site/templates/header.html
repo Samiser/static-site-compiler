@@ -2,9 +2,7 @@
   <h1>
     <a href="#home">Samiser</a>
   </h1>
-  <nav>
-    {% for page in pages %} {% if page["navbar"] == True %}
-    <a href="#{{ page["title"].lower() }}">{{ page["title"] }}</a>
-    {% endif %} {% endfor %}
+  <nav>{% for page in pages %}
+    {% if page["navbar"] == True %}<a href="#{{ page["title"].lower() }}">{{ page["title"] }}</a>{% endif %}{% endfor %}
   </nav>
 </header>

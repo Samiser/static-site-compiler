@@ -1,11 +1,13 @@
-{% for page in pages %}
-{% if page.type == "single-page" %}
-<section id="{{ page["title"].lower() }}">
+<main>
+{%- for page in pages -%}
+  {%- if page.type == "single-page" -%}
+  <section id="{{ page["title"].lower() }}">
     <h1>{{ page["title"] }}</h1>
     <hr />
-    {{ page["content"] }}
-</section>
-{% elif page.type == "multi-page" %}
-  {{ page["content"] }}
-{% endif %}
-{% endfor %}
+    {%- filter indent(width=4) -%}{{ page["content"] }}{%- endfilter -%}
+  </section>
+  {%- elif page.type == "multi-page" -%}
+  {%- filter indent(width=2) -%}{{ page["content"] }}{%- endfilter -%}
+  {%- endif -%}
+{%- endfor -%}
+</main>
