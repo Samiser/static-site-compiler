@@ -1,5 +1,4 @@
 import jinja2
-from bs4 import BeautifulSoup
 
 from pathlib import Path
 from ssc.custom_pages.lastfm.types import MyTopAlbums as LastFMTopAlbums

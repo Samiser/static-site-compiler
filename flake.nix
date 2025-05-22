@@ -16,7 +16,6 @@
 
         propagatedBuildInputs = with pkgs.python3Packages; [
           black
-          beautifulsoup4
           jinja2
           markdown
           python-frontmatter
@@ -44,7 +43,6 @@
         packages = with pkgs; [
           python3
           python3Packages.black
-          python3Packages.beautifulsoup4
           python3Packages.jinja2
           python3Packages.setuptools
           python3Packages.markdown
