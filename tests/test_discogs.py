@@ -84,17 +84,20 @@ def test_rendering_discogs():
         rendered_output,
         """\
 <p>
- welcome to my vinyl collection! powered by
- <a href="https://www.discogs.com/user/vinyl.enjoyer/collection">
-  discogs
- </a>
+  welcome to my vinyl collection! powered by
+  <a href="https://www.discogs.com/user/vinyl.enjoyer/collection">discogs</a>
 </p>
 <div class="collection">
- <div class="collection-cell">
-  <a href="https://www.discogs.com/release/18420268">
-   <img alt="Bring Backs" loading="lazy" src=""/>
-  </a>
- </div>
-</div>
-""",
+  
+  <div class="collection-cell">
+    <a href="https://www.discogs.com/release/18420268">
+      <img
+        loading="lazy"
+        src=""
+        alt="Bring Backs"
+      />
+    </a>
+  </div>
+  
+</div>""",
     )

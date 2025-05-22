@@ -66,103 +66,60 @@ def test_main_rendering(built_site: Path):
     assert_expected_inline(
         rendered_index,
         """\
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   Samiser
-  </title>
-  <meta content="Samiser's space on the internet" name="description"/>
-  <!-- twitter card -->
-  <meta content="Samiser" property="og:title"/>
-  <meta content="my space on the internet" property="og:description"/>
-  <meta content="https://images.samiser.xyz/location.png" property="og:image"/>
-  <meta content="summary_large_image" name="twitter:card"/>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
-  <header>
-   <h1>
-    <a href="#home">
-     Samiser
-    </a>
-   </h1>
-   <nav>
-    <a href="#test">
-     Test
-    </a>
-    <a href="#blog">
-     blog
-    </a>
-   </nav>
-  </header>
-  <main>
-   <section id="test">
-    <h1>
-     Test
-    </h1>
-    <hr/>
-    <p>
-     test page
-    </p>
-    <p>
-     with a
-     <a href="#blog">
-      link!
-     </a>
-    </p>
-   </section>
-   <section id="blog">
-    <h1>
-     blog
-    </h1>
-    <hr/>
-    <p>
-     occasionally i like writing about things here
-    </p>
-    <h2>
-     2000
-    </h2>
-    <ul>
-     <li>
-      <a href="#2000-01-01-test-page">
-       <em>
-        2000-01-01
-       </em>
-       - Test page
-      </a>
-     </li>
-    </ul>
-   </section>
-   <section id="2000-01-01-test-page">
-    <h1>
-     Test page
-    </h1>
-    <p>
-     <em>
-      2000-01-01
-     </em>
-    </p>
-    <p>
-     <em>
-      0 minute read
-     </em>
-    </p>
-    <hr/>
-    <p>
-     This is a test!
-    </p>
-    <pre class="codehilite"><code class="language-python">print("test")
-</code></pre>
-    <hr/>
-    <a href="#blog">
-     Back
-    </a>
-   </section>
-  </main>
- </body>
-</html>
-""",
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Samiser</title>
+    <meta name="description" content="Samiser's space on the internet" />
+
+    <!-- twitter card -->
+    <meta property="og:title" content="Samiser" />
+    <meta property="og:description" content="my space on the internet" />
+    <meta
+      property="og:image"
+      content="https://images.samiser.xyz/location.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="#home">Samiser</a>
+      </h1>
+      <nav>
+        <a href="#test">Test</a>
+        <a href="#blog">blog</a>
+      </nav>
+    </header>
+    <main><section id="test">
+        <h1>Test</h1>
+        <hr /><p>test page</p>
+        <p>with a <a href="#blog">link!</a></p></section><section id="blog">
+        <h1>blog</h1>
+        <hr>
+        <p>occasionally i like writing about things here</p>
+        <h2>2000</h2>
+        <ul>
+          <li><a href="#2000-01-01-test-page"><em>2000-01-01</em> - Test page</a></li>
+        </ul>
+      </section>
+      <section id="2000-01-01-test-page">
+        <h1>Test page</h1>
+        <p><em>2000-01-01</em></p>
+        <p><em>0 minute read</em></p>
+        <hr>
+        <p>This is a test!</p>
+      <pre class="codehilite"><code class="language-python">print(&quot;test&quot;)
+      </code></pre>
+        <hr>
+        <a href="#blog">Back</a>
+      </section>
+    </main>
+  </body>
+</html>""",
     )

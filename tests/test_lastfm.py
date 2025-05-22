@@ -66,38 +66,32 @@ def test_rendering():
         rendered_output,
         """\
 <p>
- this page shows my most listened to albums of the past week, month and year
+  this page shows my most listened to albums of the past week, month and year
 </p>
 <p>
- the data comes from my
- <a href="https://www.last.fm/user/Samiser">
-  lastfm profile
- </a>
- and it's updated
+  the data comes from my
+  <a href="https://www.last.fm/user/Samiser">lastfm profile</a> and it's updated
   every minute
 </p>
-<h2>
- week
-</h2>
+
+<h2>week</h2>
+
 <div class="album">
- <img alt="Dead Channel Sky" class="album-cover" loading="lazy" src="https://lastfm.freetls.fastly.net/i/u/300x300/ed7fd62962ee0e28b8c26555d67521ba.png"/>
- <div class="album-info">
-  <h2 class="album-title">
-   Dead Channel Sky
-  </h2>
-  <p class="album-artist">
-   clipping.
-  </p>
-  <p class="album-plays">
-   song plays: 98
-  </p>
- </div>
+  <img
+    class="album-cover"
+    loading="lazy"
+    src="https://lastfm.freetls.fastly.net/i/u/300x300/ed7fd62962ee0e28b8c26555d67521ba.png"
+    alt="Dead Channel Sky"
+  />
+  <div class="album-info">
+    <h2 class="album-title">Dead Channel Sky</h2>
+    <p class="album-artist">clipping.</p>
+    <p class="album-plays">song plays: 98</p>
+  </div>
 </div>
-<h2>
- month
-</h2>
-<h2>
- year
-</h2>
-""",
+ 
+<h2>month</h2>
+ 
+<h2>year</h2>
+ """,
     )
