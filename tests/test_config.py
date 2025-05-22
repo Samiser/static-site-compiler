@@ -1,20 +1,8 @@
 import pytest
 import json
 from pathlib import Path
-from ssc.config import load_config, load_secrets, load_configuration
-from ssc.config.types import Config, Secrets
-
-
-@pytest.fixture
-def temp_config_file(tmp_path: Path) -> Path:
-    config_data = {
-        "templates": str(tmp_path / "templates"),
-        "blogs": str(tmp_path / "blogs"),
-        "pages": str(tmp_path / "pages"),
-    }
-    config_path = tmp_path / "config.json"
-    _: int = config_path.write_text(json.dumps(config_data))
-    return config_path
+from ssc.secrets import load_secrets
+from ssc.secrets.types import Secrets
 
 
 @pytest.fixture
@@ -29,13 +17,5 @@ def temp_secrets_file(tmp_path: Path) -> Path:
     return secrets_path
 
 
-def test_load_config(temp_config_file: Path):
-    _: Config = load_config(temp_config_file)
-
-
 def test_load_secrets(temp_secrets_file: Path):
     _: Secrets = load_secrets(temp_secrets_file)
-
-
-def test_load_configuration(temp_config_file: Path, temp_secrets_file: Path):
-    _: tuple[Config, Secrets] = load_configuration(temp_config_file, temp_secrets_file)

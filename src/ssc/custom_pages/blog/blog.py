@@ -8,7 +8,8 @@ from ssc.render import render_template
 from ssc.parsers import parse_content, parse_files
 
 from .types import Post, Posts, PostsByYear, Metadata
-from ssc.config.types import Secrets, Config
+from ssc.secrets.types import Secrets
+from ssc.config.types import Config
 from ssc.parsers.types import Page
 
 
