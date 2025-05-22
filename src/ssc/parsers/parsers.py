@@ -11,7 +11,7 @@ T = TypeVar("T")
 
 
 def parse_content(content: str):
-    parser = markdown.Markdown(extensions=["codehilite"])
+    parser = markdown.Markdown(extensions=["codehilite", "fenced_code"])
 
     # parse markdown into HTML and use a bad
     # hack to ensure all images are lazy loaded

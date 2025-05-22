@@ -8,5 +8,6 @@ publish: yes
 
 This is a test!
 
-    :::python
-    print("test")
+```python
+print("test")
+```
