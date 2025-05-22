@@ -2,7 +2,8 @@ import json
 import requests
 from ssc.render import render_template
 from .types import MyTopAlbums, TopAlbums
-from ssc.config.types import Secrets, Config
+from ssc.secrets.types import Secrets
+from ssc.config.types import Config
 from ssc.parsers.types import Page
 from pathlib import Path
 

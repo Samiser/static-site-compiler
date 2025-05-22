@@ -1,7 +1,8 @@
 from ssc.custom_pages import lastfm, discogs, blog
 
 from ssc.site.types import Pages
-from ssc.config.types import Secrets, Config
+from ssc.secrets.types import Secrets
+from ssc.config.types import Config
 from ssc.parsers.types import Page
 from collections.abc import Callable
 

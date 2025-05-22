@@ -4,7 +4,8 @@ from expecttest import assert_expected_inline
 from pathlib import Path
 
 from ssc.site import build
-from ssc.config.types import Config, Secrets
+from ssc.secrets.types import Secrets
+from ssc.config.types import Config
 from ssc.custom_pages import blog
 
 
@@ -25,7 +26,6 @@ def built_site(site_dir: Path) -> Path:
     }
 
     config: Config = {
-        "templates": Path("templates"),
         "blogs": test_data_path / "blogs",
         "pages": test_data_path / "pages",
     }
