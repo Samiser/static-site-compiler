@@ -88,39 +88,40 @@ def test_main_rendering(built_site: Path):
   </head>
   <body>
     <header>
-      <h1>
-        <a href="#home">Samiser</a>
-      </h1>
-      <nav>
-        <a href="#test">Test</a>
-        <a href="#blog">blog</a>
-      </nav>
-    </header>
-    <main><section id="test">
-        <h1>Test</h1>
-        <hr /><p>test page</p>
-        <p>with a <a href="#blog">link!</a></p></section><section id="blog">
-        <h1>blog</h1>
-        <hr>
-        <p>occasionally i like writing about things here</p>
-        <h2>2000</h2>
-        <ul>
-          <li><a href="#2000-01-01-test-page"><em>2000-01-01</em> - Test page</a></li>
-        </ul>
-      </section>
-      <section id="2000-01-01-test-page">
-        <h1>Test page</h1>
-        <p><em>2000-01-01</em></p>
-        <p><em>0 minute read</em></p>
-        <hr>
-        <p>This is a test!</p>
-      <div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-      </code></pre></div>
-        <hr>
-        <a href="#blog">Back</a>
-      </section>
-    </main>
+  <h1>
+    <a href="#home">Samiser</a>
+  </h1>
+  <nav>
+    <a href="#test">Test</a>
+    <a href="#blog">blog</a>
+  </nav>
+</header> <main><section id="test">
+    <h1>Test</h1>
+    <hr />
+<p>test page</p>
+<p>with a <a href="#blog">link!</a></p>
+  </section><section id="blog">
+  <h1>blog</h1>
+  <hr>
+  <p>occasionally i like writing about things here</p>
+  <h2>2000</h2>
+  <ul>
+    <li><a href="#2000-01-01-test-page"><em>2000-01-01</em> - Test page</a></li>
+  </ul>
+</section>
+<section id="2000-01-01-test-page">
+  <h1>Test page</h1>
+  <p><em>2000-01-01</em></p>
+  <p><em>0 minute read</em></p>
+  <hr>
+  <p>This is a test!</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</code></pre></div>
+  <hr>
+  <a href="#blog">Back</a>
+</section>
+</main>
   </body>
 </html>""",
     )
