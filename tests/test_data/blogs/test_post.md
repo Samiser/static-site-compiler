@@ -9,5 +9,6 @@ publish: yes
 This is a test!
 
 ```python
-print("test")
+def hello():
+    print("test")
 ```

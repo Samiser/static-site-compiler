@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    {% filter indent(width=4) %}{% include "header.html" %}{% endfilter %}
-    {% filter indent(width=4) %}{% include "pages.html" %}{% endfilter %}
+    {% include "header.html" %} {% include "pages.html" %}
   </body>
 </html>

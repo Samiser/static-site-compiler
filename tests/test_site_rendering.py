@@ -114,7 +114,8 @@ def test_main_rendering(built_site: Path):
         <p><em>0 minute read</em></p>
         <hr>
         <p>This is a test!</p>
-      <div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+      <div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
       </code></pre></div>
         <hr>
         <a href="#blog">Back</a>
