@@ -18,6 +18,7 @@
           black
           jinja2
           markdown
+          pygments
           python-frontmatter
           requests
           pytest
@@ -46,6 +47,7 @@
           python3Packages.jinja2
           python3Packages.setuptools
           python3Packages.markdown
+          python3Packages.pygments
           python3Packages.python-frontmatter
           python3Packages.requests
           python3Packages.pytest
