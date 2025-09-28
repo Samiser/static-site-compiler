@@ -27,8 +27,10 @@ def test_rendering_discogs():
     assert_expected_inline(
         rendered_output,
         """\
-<h1>dives</h1>
-<p>parsed from UDDF</p>
+<p>
+  my dive log, parsed from uddf exported from
+  <a href="https://subsurface-divelog.org/">subsurface</a>
+</p>
 
 <table class="dive-log">
   <thead>
@@ -60,15 +62,14 @@ def test_rendering_discogs():
               32:00  
       </td>
 
-      <td>
-         *** 
-      </td>
+      <td> 3 </td>
 
       <td>3</td>
-      <td>here's a bunch of notes!
+
+      <!-- <td>here's a bunch of notes!
 - list
 - of
-- things</td>
+- things</td> -->
     </tr>
     
   </tbody>
