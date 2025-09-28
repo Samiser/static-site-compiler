@@ -1,5 +1,7 @@
-<h1>dives</h1>
-<p>parsed from UDDF</p>
+<p>
+  my dive log, parsed from uddf exported from
+  <a href="https://subsurface-divelog.org/">subsurface</a>
+</p>
 
 <table class="dive-log">
   <thead>
@@ -36,13 +38,11 @@
         %} {{ "%d:%02d"|format(m, sec) }} {% endif %} {% endif %}
       </td>
 
-      <td>
-        {% if d.rating is not none %} {% for _ in range(d.rating) %}*{% endfor
-        %} {% endif %}
-      </td>
+      <td>{% if d.rating is not none %} {{ d.rating }} {% endif %}</td>
 
       <td>{% if d.visibility is not none %}{{ d.visibility }}{% endif %}</td>
-      <td>{{ d.notes or "" }}</td>
+
+      <!-- <td>{{ d.notes or "" }}</td> -->
     </tr>
     {% endfor %}
   </tbody>
