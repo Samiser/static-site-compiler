@@ -15,7 +15,7 @@ def create(_secrets: Secrets, config: Config) -> Page:
     html = render_template(
         Path(__file__).parent / "templates",
         "dive_log.html",
-        dives,
+        {"dives": dives},
     )
 
     return Page(
