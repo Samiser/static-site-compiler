@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uddf xmlns="http://www.streit.cc/uddf/3.2/" version="3.2.0">
+  <generator>
+    <name>Subsurface Divelog</name>
+    <manufacturer id="subsurface">
+      <name>Subsurface Team</name>
+      <contact>
+        <homepage>http://subsurface-divelog.org/</homepage>
+      </contact>
+    </manufacturer>
+    <version>3</version>
+  </generator>
+  <mediadata/>
+  <diver>
+    <owner id="owner">
+      <personal>
+        <firstname/>
+        <lastname/>
+      </personal>
+      <equipment/>
+    </owner>
+    <buddy id="idp105553154818815">
+      <personal>
+        <firstname>Buddy</firstname>
+        <lastname>Friend</lastname>
+      </personal>
+    </buddy>
+  </diver>
+  <divesite>
+    <divebase id="allbase">
+      <name>Subsurface Divebase</name>
+    </divebase>
+    <site id=" 8eb1949">
+      <name>Wraysbury Dive Centre</name>
+      <geography>
+        <location>Wraysbury Dive Centre</location>
+        <latitude>51.459667</latitude>
+        <longitude>-0.548257</longitude>
+      </geography>
+    </site>
+  </divesite>
+  <gasdefinitions>
+    <mix id="mix(21/0)">
+      <name>air</name>
+      <o2>0.21</o2>
+      <he>0.00</he>
+    </mix>
+  </gasdefinitions>
+  <profiledata>
+    <repetitiongroup id="idp105553155052031">
+      <dive id="idp105553155059199">
+        <informationbeforedive>
+          <link ref="idp105553154818815"/>
+          <link ref=" 8eb1949"/>
+          <divenumber>1</divenumber>
+          <datetime>2025-09-23T11:37:00</datetime>
+          <airtemperature>292.15</airtemperature>
+          <equipmentused>
+            <leadquantity>4</leadquantity>
+          </equipmentused>
+          <tripmembership ref="tripidp105553155052031"/>
+        </informationbeforedive>
+        <tankdata>
+          <link ref="mix(21/0)"/>
+          <tankvolume>15.0</tankvolume>
+          <tankpressurebegin>16000000</tankpressurebegin>
+          <tankpressureend>8000000</tankpressureend>
+        </tankdata>
+        <samples>
+          <waypoint>
+            <depth>0</depth>
+            <divetime>0</divetime>
+          </waypoint>
+          <waypoint>
+            <depth>7.7</depth>
+            <divetime>51</divetime>
+          </waypoint>
+          <waypoint>
+            <depth>7.7</depth>
+            <divetime>1869</divetime>
+          </waypoint>
+          <waypoint>
+            <depth>0</depth>
+            <divetime>1920</divetime>
+          </waypoint>
+        </samples>
+        <informationafterdive>
+          <greatestdepth>7.7</greatestdepth>
+          <averagedepth>7.495</averagedepth>
+          <diveduration>1920</diveduration>
+          <lowesttemperature>290.15</lowesttemperature>
+          <notes>
+            <para>here's a bunch of notes!
+- list
+- of
+- things</para>
+          </notes>
+          <rating>
+            <ratingvalue>3</ratingvalue>
+          </rating>
+          <visibility>3</visibility>
+        </informationafterdive>
+      </dive>
+    </repetitiongroup>
+  </profiledata>
+  <divetrip>
+    <trip id="tripidp105553155052031">
+      <name>Wraysbury Dive Centre 2025-09-23</name>
+      <trippart>
+        <name>Wraysbury Dive Centre 2025-09-23</name>
+        <relateddives>
+          <link ref="idp105553155048831"/>
+          <link ref="idp105553155059199"/>
+          <link ref="idp105553154649983"/>
+          <link ref="idp105553154804479"/>
+        </relateddives>
+        <notes>
+          <para>PADI Open Water Diver training and qualification</para>
+        </notes>
+      </trippart>
+    </trip>
+  </divetrip>
+</uddf>

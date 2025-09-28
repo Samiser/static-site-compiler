@@ -1,0 +1,67 @@
+<h1>dives</h1>
+<p>parsed from UDDF</p>
+
+<table class="dive-log">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Max depth</th>
+      <th>Duration</th>
+      <th>Rating</th>
+      <th>Vis</th>
+      <th style="min-width: 240px">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {# sort by divenumber descending #} {% for dn, d in
+    dives|dictsort(reverse=True) %}
+    <tr>
+      <td>#{{ dn }}</td>
+      <td>
+        {% if d.datetime %}{{ d.datetime.strftime("%Y-%m-%d") }}{% endif %}
+      </td>
+      <td>{% if d.datetime %}{{ d.datetime.strftime("%H:%M") }}{% endif %}</td>
+
+      <td>
+        {% if d.greatestdepth is not none %} {{ '%.1f'|format(d.greatestdepth)
+        }} m {% endif %}
+      </td>
+
+      <td>
+        {% if d.diveduration is not none %} {% set s = d.diveduration|int %} {%
+        set h = (s // 3600) %} {% set m = ((s % 3600) // 60) %} {% set sec = (s
+        % 60) %} {% if h > 0 %} {{ "%d:%02d:%02d"|format(h, m, sec) }} {% else
+        %} {{ "%d:%02d"|format(m, sec) }} {% endif %} {% endif %}
+      </td>
+
+      <td>
+        {% if d.rating is not none %} {% for _ in range(d.rating) %}*{% endfor
+        %} {% endif %}
+      </td>
+
+      <td>{% if d.visibility is not none %}{{ d.visibility }}{% endif %}</td>
+      <td>{{ d.notes or "" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<style>
+  table.dive-log {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.dive-log th,
+  table.dive-log td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--border, #e3e3e3);
+    text-align: left;
+  }
+  table.dive-log thead th {
+    position: sticky;
+    top: 0;
+    background: var(--bg, #fff);
+  }
+</style>

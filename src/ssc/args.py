@@ -18,12 +18,15 @@ def _parse_args() -> Args:
     parser = argparse.ArgumentParser(description="sam's cool static site compiler")
     _ = parser.add_argument("--pages", required=True, help="pages directory")
     _ = parser.add_argument("--blog-posts", required=True, help="blog post directory")
+    _ = parser.add_argument("--dive-log", required=True, help="dive log in uddf format")
     _ = parser.add_argument("--secrets", required=True, help="secrets file path")
     _ = parser.add_argument("--out", required=True, help="output directory")
     args: argparse.Namespace = parser.parse_args()
 
     config = create_config(
-        Path(cast(str, args.blog_posts)), Path(cast(str, args.pages))
+        Path(cast(str, args.blog_posts)),
+        Path(cast(str, args.pages)),
+        Path(cast(str, args.dive_log)),
     )
 
     secrets = load_secrets(Path(cast(str, args.secrets)))

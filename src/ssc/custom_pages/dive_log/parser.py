@@ -1,20 +1,7 @@
 import xml.etree.ElementTree as ET
-from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-
-
-@dataclass
-class Dive:
-    # before dive
-    divenumber: int
-    datetime: datetime | None
-    # after dive
-    rating: int | None
-    visibility: int | None
-    greatestdepth: float | None
-    diveduration: int | None
-    notes: str | None
+from .types import Dive
 
 
 namespaces = {"uddf": "http://www.streit.cc/uddf/3.2/"}
@@ -81,14 +68,16 @@ def parse_uddf(uddf_path: Path) -> dict[int, Dive]:
                 dive_el, "./uddf:informationafterdive/uddf:notes/uddf:para"
             )
 
-            dives[int(divenumber)] = Dive(
-                int(divenumber),
-                dt,
-                rating,
-                visibility,
-                greatestdepth,
-                diveduration,
-                notes,
-            )
+            dive: Dive = {
+                "divenumber": int(divenumber),
+                "datetime": dt,
+                "rating": rating,
+                "visibility": visibility,
+                "greatestdepth": greatestdepth,
+                "diveduration": diveduration,
+                "notes": notes,
+            }
+
+            dives[int(divenumber)] = dive
 
     return dives
