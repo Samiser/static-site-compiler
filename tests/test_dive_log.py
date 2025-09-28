@@ -42,7 +42,7 @@ def test_rendering_discogs():
       <th>Duration</th>
       <th>Rating</th>
       <th>Vis</th>
-      <th style="min-width: 240px">Notes</th>
+      <!-- <th style="min-width: 240px">Notes</th> -->
     </tr>
   </thead>
   <tbody>
