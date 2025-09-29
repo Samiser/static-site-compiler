@@ -82,7 +82,7 @@ def test_rendering_discogs():
   }
   details.dive > summary {
     display: grid;
-    grid-template-columns: 64px 130px 80px 120px 120px 110px 1fr;
+    grid-template-columns: 50px 110px 90px 72px 65px 60px 1fr;
     gap: 0.75rem;
     align-items: center;
     padding: 0.6rem 0.8rem;
