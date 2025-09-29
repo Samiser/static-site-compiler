@@ -32,64 +32,98 @@ def test_rendering_discogs():
   <a href="https://subsurface-divelog.org/">subsurface</a>
 </p>
 
-<table class="dive-log">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Max depth</th>
-      <th>Duration</th>
-      <th>Rating</th>
-      <th>Vis</th>
-      <!-- <th style="min-width: 240px">Notes</th> -->
-    </tr>
-  </thead>
-  <tbody>
-     
-    <tr>
-      <td>#1</td>
-      <td>
-        2025-09-23
-      </td>
-      <td>11:37</td>
-
-      <td>
+<div class="dive-accordion">
+   
+  <details class="dive">
+    <summary>
+      <span class="num">#1</span>
+      <span class="date">
+        <time datetime="2025-09-23T11:37:00">
+          2025-09-23 </time
+        >
+      </span>
+      <span class="time"
+        >11:37</span
+      >
+      <span class="depth">
          7.7 m 
-      </td>
-
-      <td>
+      </span>
+      <span class="duration">
               32:00  
-      </td>
+      </span>
+      <span class="rating">
+         3 
+      </span>
+      <span class="vis"
+        >3</span
+      >
+    </summary>
 
-      <td> 3 </td>
-
-      <td>3</td>
-
-      <!-- <td>here's a bunch of notes!
-- list
-- of
-- things</td> -->
-    </tr>
-    
-  </tbody>
-</table>
+    <div class="notes">
+      <h3>Notes</h3>
+      
+      <p>here&#39;s a bunch of notes!<br />- list<br />- of<br />- things</p>
+      
+    </div>
+  </details>
+  
+</div>
 
 <style>
-  table.dive-log {
-    width: 100%;
-    border-collapse: collapse;
+  .dive-accordion {
+    display: grid;
+    gap: 0.6rem;
   }
-  table.dive-log th,
-  table.dive-log td {
-    padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid var(--border, #e3e3e3);
-    text-align: left;
-  }
-  table.dive-log thead th {
-    position: sticky;
-    top: 0;
+  details.dive {
+    border: 1px solid var(--border, #e3e3e3);
+    border-radius: 10px;
+    overflow: clip;
     background: var(--bg, #fff);
+  }
+  details.dive > summary {
+    display: grid;
+    grid-template-columns: 64px 130px 80px 120px 120px 110px 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+    list-style: none; /* hide default marker in some browsers */
+  }
+  details.dive > summary::-webkit-details-marker {
+    display: none;
+  }
+  details.dive[open] > summary {
+    border-bottom: 1px solid var(--border, #e3e3e3);
+  }
+  details.dive .notes {
+    padding: 0.75rem 0.9rem 1rem;
+  }
+  .muted {
+    opacity: 0.65;
+  }
+
+  /* Make it look table-ish and tidy */
+  .num {
+    font-weight: 600;
+  }
+  .rating {
+    letter-spacing: 0.08em;
+  }
+
+  /* Responsive: collapse to fewer columns on narrow screens */
+  @media (max-width: 640px) {
+    details.dive > summary {
+      grid-template-columns: 60px 1fr 1fr;
+      grid-auto-rows: minmax(0, auto);
+      row-gap: 0.25rem;
+    }
+    .depth,
+    .duration,
+    .rating,
+    .vis {
+      opacity: 0.9;
+      font-size: 0.95em;
+    }
   }
 </style>""",
     )
