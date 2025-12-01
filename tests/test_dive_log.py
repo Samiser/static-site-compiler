@@ -54,9 +54,9 @@ def test_rendering_discogs():
       <span class="rating">
          3 
       </span>
-      <span class="vis"
-        >3</span
-      >
+      <span class="vis">
+        3
+      </span>
     </summary>
 
     <div class="notes">
