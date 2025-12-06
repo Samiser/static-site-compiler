@@ -14,6 +14,8 @@
 
         src = ./.;
 
+        pyproject = true;
+
         propagatedBuildInputs = with pkgs.python3Packages; [
           black
           jinja2
