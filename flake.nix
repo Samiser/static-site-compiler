@@ -1,7 +1,11 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    nixpkgs,
+    self,
+    ...
+  }: let
     supportedSystems = ["x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
   in {
@@ -13,18 +17,14 @@
         version = "0.1.0";
 
         src = ./.;
-
         pyproject = true;
 
-        propagatedBuildInputs = with pkgs.python3Packages; [
-          black
+        dependencies = with pkgs.python3Packages; [
           jinja2
           markdown
           pygments
           python-frontmatter
           requests
-          pytest
-          expecttest
         ];
 
         build-system = with pkgs.python3Packages; [
@@ -33,6 +33,7 @@
 
         nativeCheckInputs = with pkgs.python3Packages; [
           pytestCheckHook
+          expecttest
         ];
 
         meta.mainProgram = "ssc";
@@ -41,18 +42,13 @@
 
     devShells = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      pkg = self.packages.${system}.default;
     in {
       default = pkgs.mkShell {
+        inputsFrom = [pkg];
         packages = with pkgs; [
-          python3
           pyright
           python3Packages.black
-          python3Packages.jinja2
-          python3Packages.setuptools
-          python3Packages.markdown
-          python3Packages.pygments
-          python3Packages.python-frontmatter
-          python3Packages.requests
           python3Packages.pytest
           python3Packages.expecttest
         ];
