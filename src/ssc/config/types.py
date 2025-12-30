@@ -1,8 +1,8 @@
-from typing import TypedDict
+from typing import TypedDict, NotRequired
 from pathlib import Path
 
 
 class Config(TypedDict):
-    blogs: Path
     pages: Path
-    dive_log: Path
+    blogs: NotRequired[Path]
+    dive_log: NotRequired[Path]

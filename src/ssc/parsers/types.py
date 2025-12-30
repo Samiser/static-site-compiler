@@ -1,4 +1,5 @@
-from typing import TypedDict, Literal, TypeAlias
+from typing import TypedDict, Literal, TypeAlias, NotRequired
+
 
 PageType: TypeAlias = Literal["multi-page", "single-page"]
 
@@ -8,3 +9,4 @@ class Page(TypedDict):
     content: str
     navbar: bool
     type: PageType
+    order: NotRequired[int]

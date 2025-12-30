@@ -15,10 +15,9 @@ def _generate_index_html(pages: Pages):
 
 
 def _copy_images_and_static_files(config: Config, out_dir: Path):
+    bases = [config.get("blogs"), config.get("pages")]
     paths: Generator[Path] = (
-        config[base] / dir
-        for dir in ["images", "static"]
-        for base in ["blogs", "pages"]
+        base / dir for dir in ["images", "static"] for base in bases if base is not None
     )
 
     for path in paths:
@@ -29,7 +28,8 @@ def _copy_images_and_static_files(config: Config, out_dir: Path):
 def build(config: Config, custom_pages: Pages | None, out_dir: Path):
     md_pages = parse_pages(config["pages"])
 
-    pages = md_pages if custom_pages is None else md_pages + custom_pages
+    all_pages = md_pages if custom_pages is None else md_pages + custom_pages
+    pages = sorted(all_pages, key=lambda p: p.get("order", 99))
 
     output = _generate_index_html(pages)
 

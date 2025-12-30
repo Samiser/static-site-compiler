@@ -10,26 +10,26 @@ from ssc.config import create_config
 
 class Args(TypedDict):
     config: Config
-    secrets: Secrets
+    secrets: Secrets | None
     out: Path
 
 
 def _parse_args() -> Args:
     parser = argparse.ArgumentParser(description="sam's cool static site compiler")
     _ = parser.add_argument("--pages", required=True, help="pages directory")
-    _ = parser.add_argument("--blog-posts", required=True, help="blog post directory")
-    _ = parser.add_argument("--dive-log", required=True, help="dive log in uddf format")
-    _ = parser.add_argument("--secrets", required=True, help="secrets file path")
+    _ = parser.add_argument("--blog-posts", help="blog post directory")
+    _ = parser.add_argument("--dive-log", help="dive log in uddf format")
+    _ = parser.add_argument("--secrets", help="secrets file path")
     _ = parser.add_argument("--out", required=True, help="output directory")
     args: argparse.Namespace = parser.parse_args()
 
     config = create_config(
-        Path(cast(str, args.blog_posts)),
-        Path(cast(str, args.pages)),
-        Path(cast(str, args.dive_log)),
+        pages=Path(cast(str, args.pages)),
+        blogs=Path(args.blog_posts) if args.blog_posts else None,
+        dive_log=Path(args.dive_log) if args.dive_log else None,
     )
 
-    secrets = load_secrets(Path(cast(str, args.secrets)))
+    secrets = load_secrets(Path(args.secrets)) if args.secrets else None
 
     return Args(
         config=config,

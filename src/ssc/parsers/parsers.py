@@ -1,7 +1,7 @@
 import markdown
 import frontmatter
 from collections.abc import Callable
-from typing import TypeVar
+from typing import TypeVar, cast
 from pathlib import Path
 
 from .types import Page
@@ -21,6 +21,7 @@ def parse_content(content: str):
 def parse_page(raw_md: frontmatter.Post):
     title = str(raw_md.metadata["title"])
     navbar = bool(raw_md.metadata.get("navbar", False))
+    order = cast(int, raw_md.metadata.get("order", 99))
     content = parse_content(raw_md.content)
 
     parsed: Page = {
@@ -28,6 +29,7 @@ def parse_page(raw_md: frontmatter.Post):
         "content": content,
         "navbar": navbar,
         "type": "single-page",
+        "order": order,
     }
 
     return parsed

@@ -7,8 +7,9 @@ from ssc.config.types import Config
 from ssc.parsers.types import Page
 
 
-def create(_secrets: Secrets, config: Config) -> Page:
-    log_path = config["dive_log"]
+def create(_secrets: Secrets | None, config: Config) -> Page:
+    log_path = config.get("dive_log")
+    assert log_path is not None
 
     dives: dict[int, Dive] = parse_uddf(log_path)
 

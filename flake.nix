@@ -45,6 +45,7 @@
       default = pkgs.mkShell {
         packages = with pkgs; [
           python3
+          pyright
           python3Packages.black
           python3Packages.jinja2
           python3Packages.setuptools

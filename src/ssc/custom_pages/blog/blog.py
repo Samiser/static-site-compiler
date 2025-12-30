@@ -62,9 +62,9 @@ def parse_posts(dir: Path, exclude: list[str] | None = None) -> Posts:
     )
 
 
-def create(_secrets: Secrets, config: Config) -> Page:
-
-    blogs_dir = config["blogs"]
+def create(_secrets: Secrets | None, config: Config) -> Page:
+    blogs_dir = config.get("blogs")
+    assert blogs_dir is not None
     posts = parse_posts(blogs_dir, exclude=["README.md"])
 
     html = render_template(
