@@ -6,6 +6,7 @@ class Dive(TypedDict):
     # before dive
     divenumber: int
     datetime: datetime | None
+    location: str | None
     # after dive
     rating: int | None
     visibility: int | None

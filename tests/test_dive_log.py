@@ -39,30 +39,25 @@ def test_rendering_discogs():
       <span class="num">#1</span>
       <span class="date">
         <time datetime="2025-09-23T11:37:00">
-          2025-09-23 </time
-        >
+          2025-09-23</time>
+        <span class="location">Wraysbury Dive Centre</span>
       </span>
-      <span class="time"
-        >11:37</span
-      >
-      <span class="depth">
-         7.7 m 
-      </span>
-      <span class="duration">
-              32:00  
-      </span>
-      <span class="rating">
-         3 
-      </span>
-      <span class="vis">
-        3
-      </span>
+      <span class="time">11:37</span>
     </summary>
 
-    <div class="notes">
-      <h3>Notes</h3>
+    <div class="dive-details">
+      <dl>
+        <div><dt>Depth</dt><dd>7.7m</dd></div>
+        <div><dt>Duration</dt><dd>32:00</dd></div>
+        <div><dt>Rating</dt><dd>3</dd></div>
+        <div><dt>Visibility</dt><dd>3</dd></div>
+      </dl>
+
       
-      <p>here&#39;s a bunch of notes!<br />- list<br />- of<br />- things</p>
+      <div class="notes">
+        <h3>Notes</h3>
+        <p>here&#39;s a bunch of notes!<br />- list<br />- of<br />- things</p>
+      </div>
       
     </div>
   </details>
@@ -75,54 +70,62 @@ def test_rendering_discogs():
     gap: 0.6rem;
   }
   details.dive {
-    border: 1px solid var(--border, #e3e3e3);
+    border: 1px solid currentColor;
     border-radius: 10px;
     overflow: clip;
-    background: var(--bg, #fff);
+    background: var(--bgcolor);
+    opacity: 0.9;
   }
   details.dive > summary {
     display: grid;
-    grid-template-columns: 50px 110px 90px 72px 65px 60px 1fr;
+    grid-template-columns: 50px 1fr auto;
     gap: 0.75rem;
     align-items: center;
     padding: 0.6rem 0.8rem;
     cursor: pointer;
-    list-style: none; /* hide default marker in some browsers */
+    list-style: none;
   }
   details.dive > summary::-webkit-details-marker {
     display: none;
   }
   details.dive[open] > summary {
-    border-bottom: 1px solid var(--border, #e3e3e3);
+    border-bottom: 1px solid currentColor;
+    opacity: 0.3;
   }
-  details.dive .notes {
-    padding: 0.75rem 0.9rem 1rem;
-  }
-  .muted {
-    opacity: 0.65;
-  }
-
-  /* Make it look table-ish and tidy */
   .num {
     font-weight: 600;
   }
-  .rating {
-    letter-spacing: 0.08em;
+  .date .location {
+    opacity: 0.7;
+    margin-left: 0.2rem;
   }
-
-  /* Responsive: collapse to fewer columns on narrow screens */
-  @media (max-width: 640px) {
-    details.dive > summary {
-      grid-template-columns: 60px 1fr 1fr;
-      grid-auto-rows: minmax(0, auto);
-      row-gap: 0.25rem;
-    }
-    .depth,
-    .duration,
-    .rating,
-    .vis {
-      opacity: 0.9;
-      font-size: 0.95em;
+  .dive-details {
+    padding: 0.75rem 0.9rem 1rem;
+  }
+  .dive-details dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .dive-details dl > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .dive-details dt {
+    opacity: 0.6;
+    font-size: 0.85em;
+  }
+  .dive-details dd {
+    font-weight: 600;
+  }
+  .dive-details .notes h3 {
+    margin-bottom: 0.3rem;
+  }
+  @media (max-width: 500px) {
+    .dive-details dl {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>""",

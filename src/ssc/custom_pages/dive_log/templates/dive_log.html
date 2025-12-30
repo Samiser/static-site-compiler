@@ -11,36 +11,25 @@
       <span class="num">#{{ dn }}</span>
       <span class="date">
         {% if d.datetime %}<time datetime="{{ d.datetime.isoformat() }}">
-          {{ d.datetime.strftime("%Y-%m-%d") }} </time
-        >{% endif %}
+          {{ d.datetime.strftime("%Y-%m-%d") }}</time>{% endif %}
+        {% if d.location %}<span class="location">{{ d.location }}</span>{% endif %}
       </span>
-      <span class="time"
-        >{% if d.datetime %}{{ d.datetime.strftime("%H:%M") }}{% endif %}</span
-      >
-      <span class="depth">
-        {% if d.greatestdepth is not none %} {{ '%.1f'|format(d.greatestdepth)
-        }} m {% endif %}
-      </span>
-      <span class="duration">
-        {% if d.diveduration is not none %} {% set s = d.diveduration|int %} {%
-        set h = s // 3600 %} {% set m = (s % 3600) // 60 %} {% set sec = s % 60
-        %} {% if h > 0 %} {{ "%d:%02d:%02d"|format(h, m, sec) }} {% else %} {{
-        "%d:%02d"|format(m, sec) }} {% endif %} {% endif %}
-      </span>
-      <span class="rating">
-        {% if d.rating is not none %} {{ d.rating }} {% endif %}
-      </span>
-      <span class="vis">
-        {% if d.visibility is not none %}{{ d.visibility }}{% endif %}
-      </span>
+      <span class="time">{% if d.datetime %}{{ d.datetime.strftime("%H:%M") }}{% endif %}</span>
     </summary>
 
-    <div class="notes">
-      <h3>Notes</h3>
+    <div class="dive-details">
+      <dl>
+        <div><dt>Depth</dt><dd>{% if d.greatestdepth is not none %}{{ '%.1f'|format(d.greatestdepth) }}m{% else %}-{% endif %}</dd></div>
+        <div><dt>Duration</dt><dd>{% if d.diveduration is not none %}{% set s = d.diveduration|int %}{% set h = s // 3600 %}{% set m = (s % 3600) // 60 %}{% set sec = s % 60 %}{% if h > 0 %}{{ "%d:%02d:%02d"|format(h, m, sec) }}{% else %}{{ "%d:%02d"|format(m, sec) }}{% endif %}{% else %}-{% endif %}</dd></div>
+        <div><dt>Rating</dt><dd>{% if d.rating is not none %}{{ d.rating }}{% else %}-{% endif %}</dd></div>
+        <div><dt>Visibility</dt><dd>{% if d.visibility is not none %}{{ d.visibility }}{% else %}-{% endif %}</dd></div>
+      </dl>
+
       {% if d.notes %}
-      <p>{{ d.notes | e | replace('\n','<br />') | safe }}</p>
-      {% else %}
-      <p class="muted">No notes.</p>
+      <div class="notes">
+        <h3>Notes</h3>
+        <p>{{ d.notes | e | replace('\n','<br />') | safe }}</p>
+      </div>
       {% endif %}
     </div>
   </details>
@@ -53,54 +42,62 @@
     gap: 0.6rem;
   }
   details.dive {
-    border: 1px solid var(--border, #e3e3e3);
+    border: 1px solid currentColor;
     border-radius: 10px;
     overflow: clip;
-    background: var(--bg, #fff);
+    background: var(--bgcolor);
+    opacity: 0.9;
   }
   details.dive > summary {
     display: grid;
-    grid-template-columns: 50px 110px 90px 72px 65px 60px 1fr;
+    grid-template-columns: 50px 1fr auto;
     gap: 0.75rem;
     align-items: center;
     padding: 0.6rem 0.8rem;
     cursor: pointer;
-    list-style: none; /* hide default marker in some browsers */
+    list-style: none;
   }
   details.dive > summary::-webkit-details-marker {
     display: none;
   }
   details.dive[open] > summary {
-    border-bottom: 1px solid var(--border, #e3e3e3);
+    border-bottom: 1px solid currentColor;
+    opacity: 0.3;
   }
-  details.dive .notes {
-    padding: 0.75rem 0.9rem 1rem;
-  }
-  .muted {
-    opacity: 0.65;
-  }
-
-  /* Make it look table-ish and tidy */
   .num {
     font-weight: 600;
   }
-  .rating {
-    letter-spacing: 0.08em;
+  .date .location {
+    opacity: 0.7;
+    margin-left: 0.2rem;
   }
-
-  /* Responsive: collapse to fewer columns on narrow screens */
-  @media (max-width: 640px) {
-    details.dive > summary {
-      grid-template-columns: 60px 1fr 1fr;
-      grid-auto-rows: minmax(0, auto);
-      row-gap: 0.25rem;
-    }
-    .depth,
-    .duration,
-    .rating,
-    .vis {
-      opacity: 0.9;
-      font-size: 0.95em;
+  .dive-details {
+    padding: 0.75rem 0.9rem 1rem;
+  }
+  .dive-details dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .dive-details dl > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .dive-details dt {
+    opacity: 0.6;
+    font-size: 0.85em;
+  }
+  .dive-details dd {
+    font-weight: 600;
+  }
+  .dive-details .notes h3 {
+    margin-bottom: 0.3rem;
+  }
+  @media (max-width: 500px) {
+    .dive-details dl {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
