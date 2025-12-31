@@ -54,7 +54,7 @@ def parse_uddf(uddf_path: Path) -> dict[int, Dive]:
         ".//uddf:profiledata/uddf:repetitiongroup/uddf:dive", namespaces
     ):
         divenumber = _get_text(dive_el, "./uddf:informationbeforedive/uddf:divenumber")
-        if divenumber != None:
+        if divenumber is not None:
             dt_s = _get_text(dive_el, "./uddf:informationbeforedive/uddf:datetime")
             dt = datetime.fromisoformat(dt_s) if dt_s else None
 

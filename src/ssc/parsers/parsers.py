@@ -1,3 +1,4 @@
+import re
 import markdown
 import frontmatter
 from collections.abc import Callable
@@ -10,12 +11,14 @@ from .types import Page
 T = TypeVar("T")
 
 
+def _add_lazy_loading(html: str) -> str:
+    """Add loading="lazy" to img tags that don't already have it."""
+    return re.sub(r"<img(?![^>]*loading=)", '<img loading="lazy"', html)
+
+
 def parse_content(content: str):
     parser = markdown.Markdown(extensions=["codehilite", "fenced_code"])
-
-    # parse markdown into HTML and use a bad
-    # hack to ensure all images are lazy loaded
-    return parser.convert(content).replace("<img alt", '<img loading="lazy" alt')
+    return _add_lazy_loading(parser.convert(content))
 
 
 def parse_page(raw_md: frontmatter.Post):
@@ -33,10 +36,6 @@ def parse_page(raw_md: frontmatter.Post):
     }
 
     return parsed
-
-
-def get_files(dir: Path):
-    return [x for x in dir.iterdir() if x.is_dir()]
 
 
 def parse_files(

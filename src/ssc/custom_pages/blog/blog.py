@@ -27,9 +27,8 @@ def parse_post(raw_md: frontmatter.Post):
     word_count = len(raw_md.content.strip().split(" "))
     time_to_read = round(word_count / 300)
 
-    tags: list[str] = (
-        raw_md.metadata["tags"] if isinstance(raw_md.metadata["tags"], list) else []
-    )
+    raw_tags = raw_md.metadata.get("tags")
+    tags: list[str] = raw_tags if isinstance(raw_tags, list) else []
     title = str(raw_md.metadata["title"])
     summary = str(raw_md.metadata["summary"])
     date = raw_md.metadata["date"]
